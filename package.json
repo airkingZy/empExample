@@ -1,0 +1,23 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "bootstrap": "lerna bootstrap --force-local",
+    "clean": "rm -rf node_modules && lerna clean",
+    "clean:dist": "rm -rf packages/*/dist",
+    "build": "rm -rf packages/*/dist && lerna run build",
+    "publish:next": "lerna publish --force-publish --dist-tag=next --skip-git",
+    "publish:latest": "lerna publish --force-publish --skip-git",
+    "unit": "jest --config test/unit/jest.conf.js --coverage",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
